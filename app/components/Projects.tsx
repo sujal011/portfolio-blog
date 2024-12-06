@@ -3,6 +3,7 @@
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -13,6 +14,7 @@ const projects = [
     technologies: ['React', 'Python', 'FastAPI', 'Langchain', 'Llama Multimodal'],
     github: 'https://github.com/sujal011/ai-whiteboard-frontend',
     live: 'https://ai-whiteboard.vercel.app',
+    href:"/project/ai-powered-whiteboard"
   },
   {
     title: 'Live Paste',
@@ -22,6 +24,7 @@ const projects = [
     technologies: ['React', 'Java', 'Spring Boot', 'WebSockets'],
     github: 'https://github.com/sujal011/livepaste-backend',
     live: 'https://livepaste.netlify.app/sujal?edit=true',
+    href:"/project/ai-powered-whiteboard"
   },
 ];
 
@@ -68,6 +71,7 @@ const Projects = () => {
         >
           {projects.map((project, index) => (
             <motion.div
+            
               key={index}
               variants={projectVariants}
               whileHover={{ y: -10 }}
@@ -86,8 +90,11 @@ const Projects = () => {
                 />
               </motion.div>
               <div className="p-6">
+
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <Link href={project.href!} key={index}>
                   {project.title}
+                </Link>
                 </h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <motion.div
