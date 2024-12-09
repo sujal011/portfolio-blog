@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const Contact = () => {
   const containerVariants = {

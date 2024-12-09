@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Code2, Database, Layout, Server } from 'lucide-react';
 import SkillCard from './Card-skill';
 

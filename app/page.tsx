@@ -1,3 +1,4 @@
+import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -17,7 +18,7 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
-        {/* <Contact />  */}
+        <Contact /> 
       </main>
     <footer className="bg-gray-900 text-white py-12">
       <Footer/>

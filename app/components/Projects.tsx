@@ -2,7 +2,7 @@
 
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 
 const projects = [
