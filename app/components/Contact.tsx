@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
+import {FormEvent} from 'react'
 
 const Contact = () => {
   const containerVariants = {
@@ -86,7 +87,7 @@ const Contact = () => {
           <motion.form
             variants={containerVariants}
             className="space-y-6 card-gradient p-8 rounded-lg"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
               { id: 'name', type: 'text', label: 'Name' },
