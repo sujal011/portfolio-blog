@@ -13,7 +13,7 @@ const SkillCard = ({ title, icon: Icon, skills }: SkillCardProps) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+      className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-full"
     >
       <div className="flex items-center mb-4">
         <Icon className="w-6 h-6 text-blue-600 mr-2" />
