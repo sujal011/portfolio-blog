@@ -1,6 +1,6 @@
 
 import { Github, Linkedin, Mail } from 'lucide-react';
-
+import './Footer.css'
 const Footer = () => {
   return (
       <div className="container mx-auto px-6">
