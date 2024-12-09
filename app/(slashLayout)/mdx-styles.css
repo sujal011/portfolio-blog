@@ -1,0 +1,80 @@
+/* Tailwind CSS styles for MDX elements */
+
+/* Root element for the entire blog post */
+.prose {
+    @apply max-w-prose mx-auto px-4 py-8;
+  }
+  
+  /* Headers */
+  h1 {
+    @apply text-4xl font-extrabold text-gray-800 my-4;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold text-gray-700 mt-6 mb-3;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold text-gray-600 mt-5 mb-2;
+  }
+  
+  /* Paragraphs */
+  p {
+    @apply text-base text-gray-700 leading-relaxed mb-4;
+  }
+  
+  /* Links */
+  a {
+    @apply text-blue-600 hover:underline;
+  }
+  
+  /* Lists */
+  ul {
+    @apply list-disc pl-6 mb-4;
+  }
+  
+  ol {
+    @apply list-decimal pl-6 mb-4;
+  }
+  
+  li {
+    @apply mb-2 text-gray-700;
+  }
+  
+  /* Blockquote */
+  blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4;
+  }
+  
+  /* Code blocks */
+  pre {
+    @apply bg-gray-800 text-white rounded-md p-4 overflow-x-auto mb-4;
+  }
+  
+  code {
+    @apply bg-gray-100 text-red-500 rounded px-1 py-0.5 font-mono;
+  }
+  
+  /* Tables */
+  table {
+    @apply table-auto w-full text-left border-collapse border border-gray-300 mb-4;
+  }
+  
+  th {
+    @apply bg-gray-100 text-gray-800 font-bold border border-gray-300 px-4 py-2;
+  }
+  
+  td {
+    @apply border border-gray-300 px-4 py-2 text-gray-700;
+  }
+  
+  /* Images */
+  img {
+    @apply rounded-lg shadow-lg max-w-full h-auto mx-auto my-4;
+  }
+  
+  /* Horizontal rules */
+  hr {
+    @apply border-t border-gray-300 my-6;
+  }
+  
