@@ -2,12 +2,13 @@
 
 import { Mail, Phone, MapPin, Vault } from 'lucide-react';
 import { motion } from 'motion/react';
-import {ChangeEvent, FormEvent, useEffect, useState} from 'react'
+import {ChangeEvent, FormEvent, useState} from 'react'
 import emailjs from '@emailjs/browser'
 
 
 const Contact = () => {
 
+  // const myform = document.getElementById('myform') as HTMLFormElement;
   
 
 const containerVariants = {
@@ -47,20 +48,14 @@ const containerVariants = {
   const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
     
-    // const success = await emailjs.send(process.env.MAIL_SERVICE!,process.env.MAIL_TEMPLATE!,{
-    //   message: formData.message,
-    //   user_name: formData.name,
-    //   user_email: formData.email,
-    //   });
     emailjs.init(process.env.NEXT_PUBLIC_MAIL_KEY!);
-    emailjs.sendForm(process.env.MAIL_SERVICE!, process.env.MAIL_TEMPLATE!, '#myForm').then(
-      (response) => {
-        console.log('SUCCESS!', response.status, response.text);
-      },
-      (error) => {
-        console.log('FAILED...', error);
-      },
-    );
+    const success = await emailjs.send(process.env.NEXT_PUBLIC_MAIL_SERVICE!,process.env.NEXT_PUBLIC_MAIL_TEMPLATE!,{
+      message: formData.message,
+      from_name: formData.name,
+      from_email: formData.email,
+      });
+      console.log(success);
+      
     
     console.log('Form data submitted:', formData);
     
@@ -125,14 +120,14 @@ const containerVariants = {
           </motion.div>
 
           <motion.form
-          id='myForm'
+          id='myform'
             variants={containerVariants}
             className="space-y-6 card-gradient p-8 rounded-lg"
             onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
-              { id: 'name', type: 'text', label: 'Name',value:formData.name },
-              { id: 'email', type: 'email', label: 'Email',value:formData.email }
+              { name:'from_name',id: 'name', type: 'text', label: 'Name',value:formData.name },
+              { name:'from_email',id: 'email', type: 'email', label: 'Email',value:formData.email }
             ].map((field) => (
               <motion.div key={field.id} variants={itemVariants}>
                 <label htmlFor={field.id} className="block text-gray-700 mb-2">
