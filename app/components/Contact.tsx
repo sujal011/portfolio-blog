@@ -122,7 +122,7 @@ const containerVariants = {
           <motion.form
           id='myform'
             variants={containerVariants}
-            className="space-y-6 card-gradient p-8 rounded-lg"
+            className="space-y-6 card-gradient px-10 rounded-lg pt-0 mt-0"
             onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
