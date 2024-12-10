@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   experimental:{
     mdxRs:true,
   },
-  output:"export"
+  output:"export",
+  basePath:"/portfolio-blog"
 };
 
 const withMDX = createMDX({});
