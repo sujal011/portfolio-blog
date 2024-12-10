@@ -1,94 +1,97 @@
+import Video from './Video'
 
 export const metadata = {
-  title: 'Ai Powered Whiteboard Project',
+  title: 'AI-Powered Whiteboard Project',
   alternates: {
     canonical: '/projects/ai-powered-whiteboard',
   },
 };
 
-# Building an AI-Powered Whiteboard: Revolutionizing Productivity and Learning
 
-In today’s fast-paced environment, technology plays a crucial role in simplifying and enhancing our workflows. Imagine having an all-in-one AI-powered platform that caters to brainstorming, problem-solving, and learning—all through an interactive whiteboard. In this blog, we’ll explore how to create an **AI-powered whiteboard** that combines drawing, note-taking, and AI-based assistance.
+
+
+# Building an AI-Powered Whiteboard:
+
+[**Live Demo**](https://ai-whiteboard.vercel.app) | [**Frontend GitHub**](https://github.com/sujal011/ai-whiteboard-frontend) | [**Backend GitHub**](https://github.com/sujal011/ai-whiteboard-backend)
+
+
+In today’s fast-paced world, juggling multiple tools for brainstorming, problem-solving, and learning can be inefficient. Imagine an AI-powered whiteboard that integrates drawing, note-taking, and instant problem-solving—making all of these tasks seamless and intuitive. Let’s dive into how this platform is changing the way we work and learn.
 
 ---
 
 ## The Problem
 
-Professionals, educators, and students often rely on multiple tools to achieve their goals: diagramming applications for visual planning, calculators for problem-solving, and programming tools for coding assistance. Switching between platforms disrupts focus, wastes time, and hampers productivity.
-
-The need for a unified platform that combines these functionalities into one seamless experience was the driving force behind the creation of this AI-powered whiteboard.
+Professionals, educators, and students often switch between apps for tasks like diagramming, coding, or problem-solving. This constant back-and-forth disrupts workflow and wastes valuable time. The need for a unified platform led to the creation of this **AI-powered whiteboard**, combining everything in one place for a streamlined experience.
 
 ---
 
 ## The Vision
 
-Our AI-powered whiteboard offers features such as:
+The AI-powered whiteboard includes features that boost productivity and enhance learning:
 
-- **Visual Diagram Generation**: Automatically create flowcharts, mind maps, and other visual aids.
-- **Math and Physics Problem Solving**: Input scenarios through drawings or equations and receive instant solutions.
-- **Interactive Note-Taking**: Generate educational checklists and explanations for programming topics.
-- **Real-Time Coding Assistance**: Solve coding problems and receive snippets in programming languages like Python.
-
-This platform enhances productivity and promotes an intuitive way to learn and solve problems.
+- **Visual Diagram Generation**: Create flowcharts, mind maps, and more automatically.
+- **Math & Physics Solutions**: Draw problems, like a triangle, and get instant answers.
+- **Interactive Note-Taking**: Generate checklists and explanations for programming concepts.
+- **Real-Time Coding Help**: Get coding snippets and solutions, like solving equations or generating Fibonacci series in Python.
 
 ---
 
-## Key Features and Capabilities
+## Key Features
 
-### 1. **Diagramming Made Easy**
-   - Draw rough flowcharts or mind maps, and let the AI transform them into polished diagrams.
-   - Save and export diagrams for project planning or presentations.
+### 1. **Easy Diagramming**
+   - Sketch flowcharts or mind maps, and let the AI refine them into polished diagrams.
+   - Export diagrams for projects or presentations.
 
-### 2. **Mathematical Problem Solving**
-   - Input shapes like triangles or physical scenarios directly onto the board.
-   - For example, draw a Pythagoras triangle with side lengths and let the AI calculate the hypotenuse.
-   - Use physics-based drawings to analyze real-world problems, such as calculating collision time.
+### 2. **Instant Problem Solving**
+   - Draw shapes or scenarios (like a triangle) and let the AI compute solutions instantly.
+   - Solve physics problems, like collision time, using your own drawings.
 
 ### 3. **Educational Assistance**
-   - Request programming checklists (e.g., Python topics) and track your progress by ticking items off.
-   - Ask the AI for explanations of coding concepts like dictionaries, complete with code snippets.
+   - Get programming checklists, track your progress, or ask for explanations and code snippets.
 
-### 4. **Coding Assistance**
-   - Input equations, such as `2x + y = ?`, and receive quick solutions.
-   - Request coding snippets, such as generating the Fibonacci series, and get working Python code instantly.
+### 4. **Coding Help**
+   - Input problems like `2x + y = ?` and get immediate solutions.
+   - Generate working code for tasks like the Fibonacci sequence in Python.
 
+---
+<Video/>
 ---
 
 ## How It Works
 
-The AI-powered whiteboard is built using advanced technologies to understand user inputs and generate meaningful outputs. Here's a glimpse into the workflow:
+This AI-powered whiteboard uses advanced technology to interpret user inputs (drawings or text) and provide helpful outputs:
 
-1. **Input**: Users interact with the whiteboard by drawing or typing.
-2. **Processing**: AI models process the input using natural language understanding and computer vision techniques.
-3. **Output**: Solutions, diagrams, or explanations are displayed on the whiteboard in real-time.
-
-The entire process is designed to be user-friendly, ensuring a seamless experience for both beginners and experts.
+1. **Input**: Users draw or type on the board.
+2. **Processing**: The AI processes input using natural language understanding and computer vision.
+3. **Output**: The solution, diagram, or explanation appears on the whiteboard in real-time.
 
 ---
 
-## Benefits of the AI-Powered Whiteboard
+## Tech Stack
 
-- **Increased Efficiency**: Combines multiple tools into one platform, reducing the need for context switching.
-- **Enhanced Learning**: Offers instant explanations and interactive coding assistance.
-- **User-Friendly Interface**: Intuitive design ensures accessibility for all users.
-- **Customizable Outputs**: Export diagrams, notes, and solutions for future use.
+This project is built using the following technologies:
+
+- **Backend**: Python, FastAPI, LangChain, LLaMA (multi-model processing)
+- **Frontend**: React, Excalidraw, Editor.js
 
 ---
 
-## Future Prospects
+## Challenges and Solutions
 
-The AI-powered whiteboard is just the beginning. Future iterations could include:
+### Challenge 1: **Generating Diagrams from Drawings**
+   - **Solution**: One of the biggest challenges was enabling the AI to generate diagrams from freehand sketches. I found **Mermaid syntax** to be a great solution for converting diagrams like flowcharts and mind maps into structured code. The AI now translates rough drawings into **Mermaid**-based syntax, which is then rendered into polished diagrams. This helped streamline the diagramming process while keeping the platform flexible and intuitive.
 
-- Voice commands for hands-free interaction.
-- Collaborative features for team projects.
-- Integration with external APIs for enhanced capabilities.
+### Challenge 2: **Real-Time Processing of Complex Inputs**
+   - **Solution**: Handling multiple complex inputs simultaneously was tricky. By using **FastAPI** for fast backend processing and **LangChain** for handling multi-step AI tasks, I was able to streamline and optimize the real-time output generation.
+
+### Challenge 3: **Creating an Intuitive User Interface**
+   - **Solution**: Building a user-friendly interface that accommodates diverse user needs (students, professionals, etc.) was key. Integrating **React** with **Excalidraw** for dynamic drawing and **Editor.js** for easy note-taking provided the flexibility required for a seamless experience.
 
 ---
 
 ## Conclusion
 
-The AI-powered whiteboard is more than just a tool; it’s a game-changer for productivity and learning. By combining diagramming, problem-solving, and educational assistance into one platform, this solution revolutionizes the way we work and learn. Whether you’re a student tackling math problems or a professional brainstorming project ideas, this whiteboard is here to make your tasks simpler and more intuitive.
+The AI-powered whiteboard is revolutionizing the way we approach productivity and learning. By combining visual diagramming, real-time problem-solving, and educational assistance into one intuitive platform, it streamlines workflows and enhances understanding. Whether you’re a student solving math problems or a professional brainstorming project ideas, this whiteboard brings everything you need into one place.
 
 Start your journey with AI-powered productivity today!
-
 

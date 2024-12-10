@@ -10,7 +10,7 @@ const projects = [
     title: 'AI Powered Whiteboard',
     description:
       'A full-featured whiteboard powered by AI for teachers and students.',
-    image: '/ai-whiteboard-project.png',
+    image: '/ai-powered-whiteboard-project.png',
     technologies: ['React', 'Python', 'FastAPI', 'Langchain', 'Llama Multimodal'],
     github: 'https://github.com/sujal011/ai-whiteboard-frontend',
     live: 'https://ai-whiteboard.vercel.app',
@@ -20,12 +20,21 @@ const projects = [
     title: 'Live Paste',
     description:
       'A websockets based live clipboard sharing platform',
-    image: '/livepaste.png',
+    image: '/livepaste-project.png',
     technologies: ['React', 'Java', 'Spring Boot', 'WebSockets'],
     github: 'https://github.com/sujal011/livepaste-backend',
     live: 'https://livepaste.netlify.app/sujal?edit=true',
-    href:"/project/ai-powered-whiteboard"
+    href:"/project/livepaste"
   },
+  {
+    "title": "Market Mitra",
+    "description": "A mobile app enabling direct market access for farmers, connecting them with buyers for better pricing and transparency.",
+    "image": "/market-mitra-project.png",
+    "technologies": ["React Native", "Expo", "JavaScript", "Appwrite", "Firebase"],
+    "github": "https://github.com/sujal011/market-mitra-105",
+    "live": null,
+    "href": "/project/market-mitra"
+  }
 ];
 
 const Projects = () => {

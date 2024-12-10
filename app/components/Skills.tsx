@@ -18,12 +18,12 @@ const skillsData = [
   {
     title: 'Database & Cloud',
     icon: Database,
-    skills: ['MongoDB', 'PostgreSQL', 'Redis', 'AWS', 'Docker'],
+    skills: ['MongoDB', 'PostgreSQL', 'AWS', 'Docker'],
   },
   {
     title: 'Languages & Tools',
     icon: Code2,
-    skills: ['JavaScript', 'Python', 'Java', 'Git', 'Linux'],
+    skills: ['JavaScript', 'Typescript','Python', 'Java', 'Git', 'Github'],
   },
 ];
 

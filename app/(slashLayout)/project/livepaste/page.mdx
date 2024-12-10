@@ -1,0 +1,73 @@
+export const metadata = {
+  title: 'LivePaste Project: Real-Time Clipboard Sharing',
+  alternates: {
+    canonical: '/projects/livepaste',
+  },
+};
+
+# LivePaste: Real-Time Clipboard Sharing Application
+[**Live Demo**](https://livepaste.netlify.app/abc?edit=true) | [**Frontend GitHub**](https://github.com/sujal011/LivePaste-frontend) | [**Backend GitHub**](https://github.com/sujal011/livepaste-backend)
+
+In today’s digital world, sharing information quickly and seamlessly is essential. Whether you’re collaborating on a project, sharing notes, or helping others with technical tasks, clipboard sharing can save a lot of time. But what if you could share your clipboard content in real-time with others? The **LivePaste** project brings this concept to life with an innovative solution for instant clipboard sharing.
+
+---
+
+## The Problem
+
+Copy-pasting content to collaborate with colleagues, classmates, or friends can often be clunky and inefficient. Typically, this involves manually copying and pasting data into chat applications or emails, which can be slow and error-prone.
+
+Real-time clipboard sharing, where users can instantly share their clipboard contents with others, was the solution to this problem. By enabling seamless communication, we could improve the speed and ease of collaboration.
+
+---
+
+## The Vision
+
+The **LivePaste** project allows users to instantly share clipboard content with others using a real-time, websocket-based connection. This tool makes it easier for people to collaborate, share information, and keep their work synchronized across multiple devices in real-time.
+
+### Key Features:
+
+- **Real-Time Clipboard Sharing**: Instantly share copied content with other users.
+- **Seamless Communication**: Send and receive updates live without needing to refresh or reload.
+- **Cross-Device Synchronization**: Share content across different devices and platforms in real-time.
+- **Easy Integration**: Connect with others with just a link, no need for account creation.
+
+---
+
+## Tech Stack
+
+The **LivePaste** project is built with the following technologies:
+
+- **Backend**: Spring Boot (for robust backend system), WebSockets (for real-time updates)
+- **Frontend**: React (for dynamic, real-time UI updates)
+
+---
+
+## How It Works
+
+The LivePaste application allows users to seamlessly share their clipboard content in real-time through WebSockets. Here’s a look at how the system works:
+
+1. **User Interaction**: Users copy content to their clipboard, which is then sent to the server through WebSocket connections.
+2. **Real-Time Communication**: WebSocket connections ensure that every update is immediately transmitted to all connected users, without the need for refreshing the page.
+3. **Backend Handling**: Spring Boot handles the WebSocket connections and processes the clipboard data. MongoDB stores user data and clipboard content for cross-session sharing.
+
+---
+
+## Challenges and Solutions
+
+### Challenge 1: **Ensuring Real-Time Communication**
+   - **Solution**: Ensuring fast, real-time communication was the biggest challenge. Using **WebSockets** allowed for a bi-directional, low-latency communication channel, ensuring instant clipboard sharing between users. 
+
+### Challenge 2: **Cross-Device Synchronization**
+   - **Solution**: Managing synchronization across different devices, browsers, and platforms was tricky. To address this, I implemented a robust session management system using **MongoDB** to store clipboard data and user preferences, ensuring content remains accessible across multiple devices.
+
+### Challenge 3: **Scaling the WebSocket Connections**
+   - **Solution**: Handling a large number of concurrent WebSocket connections was challenging. I optimized the backend with **Spring Boot** to manage WebSocket connections efficiently and used load balancing techniques to ensure the system could scale as the number of users increased.
+
+---
+
+## Conclusion
+
+The **LivePaste** project is a game-changer for real-time clipboard sharing. By allowing users to seamlessly share clipboard content and collaborate live, this application speeds up communication, reduces friction, and makes remote collaboration easier than ever. Whether you're working on a group project or assisting someone remotely, LivePaste keeps you connected in real-time.
+
+Start using LivePaste for your real-time collaboration needs today!
+
