@@ -1,5 +1,7 @@
 "use client";
-
+import ai_whiteboard from '/public/ai-powered-whiteboard-project.png'
+import live_paste from '/public/livepaste-project.png'
+import market_mitra from '/public/market-mitra-project.png'
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
@@ -10,7 +12,7 @@ const projects = [
     title: 'AI Powered Whiteboard',
     description:
       'A full-featured whiteboard powered by AI for teachers and students.',
-    image: '/ai-powered-whiteboard-project.png',
+    image: ai_whiteboard,
     technologies: ['React', 'Python', 'FastAPI', 'Langchain', 'Llama Multimodal'],
     github: 'https://github.com/sujal011/ai-whiteboard-frontend',
     live: 'https://ai-whiteboard.vercel.app',
@@ -20,7 +22,7 @@ const projects = [
     title: 'Live Paste',
     description:
       'A websockets based live clipboard sharing platform',
-    image: '/livepaste-project.png',
+    image: live_paste,
     technologies: ['React', 'Java', 'Spring Boot', 'WebSockets'],
     github: 'https://github.com/sujal011/livepaste-backend',
     live: 'https://livepaste.netlify.app/sujal?edit=true',
@@ -29,7 +31,7 @@ const projects = [
   {
     "title": "Market Mitra",
     "description": "A mobile app enabling direct market access for farmers, connecting them with buyers for better pricing and transparency.",
-    "image": "/market-mitra-project.png",
+    "image": market_mitra,
     "technologies": ["React Native", "Expo", "JavaScript", "Appwrite", "Firebase"],
     "github": "https://github.com/sujal011/market-mitra-105",
     "live": null,
