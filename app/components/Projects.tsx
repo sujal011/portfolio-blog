@@ -90,13 +90,17 @@ const Projects = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
+            <Link href={project.href!} key={index}>
+
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={540}
                   height={480}
-                  className="w-full h-48 object-cover"
+                  className="w-full min-sm:h-48 object-cover"
                 />
+                </Link>
+
               </motion.div>
               <div className="p-6">
 

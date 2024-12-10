@@ -1,11 +1,16 @@
 "use client";
 
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Vault } from 'lucide-react';
 import { motion } from 'motion/react';
-import {FormEvent} from 'react'
+import {ChangeEvent, FormEvent, useEffect, useState} from 'react'
+import emailjs from '@emailjs/browser'
+
 
 const Contact = () => {
-  const containerVariants = {
+
+  
+
+const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,6 +29,41 @@ const Contact = () => {
         duration: 0.5
       }
     }
+  };
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e:FormEvent) => {
+    e.preventDefault();
+    
+    // const success = await emailjs.send(process.env.MAIL_SERVICE!,process.env.MAIL_TEMPLATE!,{
+    //   message: formData.message,
+    //   user_name: formData.name,
+    //   user_email: formData.email,
+    //   });
+    emailjs.init(process.env.NEXT_PUBLIC_MAIL_KEY!);
+    emailjs.sendForm(process.env.MAIL_SERVICE!, process.env.MAIL_TEMPLATE!, '#myForm').then(
+      (response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      },
+      (error) => {
+        console.log('FAILED...', error);
+      },
+    );
+    
+    console.log('Form data submitted:', formData);
+    
   };
 
   return (
@@ -85,13 +125,14 @@ const Contact = () => {
           </motion.div>
 
           <motion.form
+          id='myForm'
             variants={containerVariants}
             className="space-y-6 card-gradient p-8 rounded-lg"
             onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
-              { id: 'name', type: 'text', label: 'Name' },
-              { id: 'email', type: 'email', label: 'Email' }
+              { id: 'name', type: 'text', label: 'Name',value:formData.name },
+              { id: 'email', type: 'email', label: 'Email',value:formData.email }
             ].map((field) => (
               <motion.div key={field.id} variants={itemVariants}>
                 <label htmlFor={field.id} className="block text-gray-700 mb-2">
@@ -100,8 +141,11 @@ const Contact = () => {
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
                   type={field.type}
+                  name={field.id}
                   id={field.id}
-                  className="w-full px-4 py-2 bg-white/50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  value={field.value}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 bg-white/50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-black"
                 />
               </motion.div>
             ))}
@@ -112,13 +156,16 @@ const Contact = () => {
               </label>
               <motion.textarea
                 whileFocus={{ scale: 1.01 }}
+                name="message"
                 id="message"
                 rows={4}
-                className="w-full px-4 py-2 bg-white/50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-white/50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-black"
               ></motion.textarea>
             </motion.div>
 
             <motion.button
+            onClick={handleSubmit}
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
