@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Vault } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import {ChangeEvent, FormEvent, useState} from 'react'
 import emailjs from '@emailjs/browser'
