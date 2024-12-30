@@ -1,16 +1,30 @@
-{/* ---
-title: "Welcome to My Blog!"
-date: "2024-12-10"
-author: "Sujal Bhavsar"
-description: "An introduction to my journey, passions, and the exciting projects I’ve been working on."
---- */}
+import { Metadata } from 'next';
 
 export const metadata = {
-  title: 'First Blog | Sujal Bhavsar',
-  alternates: {
-    canonical: '/blog/first-blog',
-  },
+  
+  title: "Welcome to My Blog! | Sujal Bhavsar",
+  description: "An introduction to my journey, passions, and the exciting projects I’ve been working on.",
+  openGraph: {
+    title: "Welcome to My Blog! Sujal Bhavsar",
+    description: "An introduction to my journey, passions, and the exciting projects I’ve been working on.",
+    url: "https://sujalbhavsar.in/blog/welcome-to-my-blog",
+    siteName: "Sujal Bhavsar",
+    images: [
+      {
+        url: "https://sujalbhavsar.in/assets/blog/welcome-thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "Welcome to My Blog! - Sujal Bhavsar",
+      },
+    ],
+    type: "article",
+    publishedTime: "2024-12-10",
+    authors: ["https://sujalbhavsar.in"],
+  }
+  
 };
+
+
 
 # Welcome to My Blog!
 
@@ -49,3 +63,4 @@ Thank you for visiting, and I hope you enjoy the journey ahead. Stay tuned for t
 ---
 
 *Happy coding!*
+<br/>
