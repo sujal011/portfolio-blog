@@ -4,13 +4,24 @@ import { ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
+interface Dot {
+  x: number;
+  y: number;
+  size: number;
+  color: string;
+}
+interface Mouse {
+  x: number;
+  y: number;
+}
+
 const Hero = () => {
-  let canvasRef = useRef<HTMLCanvasElement | null>(null);
-  let homeSection = useRef<HTMLElement | null>(null);
-  let canvasCtxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const homeSection = useRef<HTMLElement | null>(null);
+  const canvasCtxRef = useRef<CanvasRenderingContext2D | null>(null);
   const arrayColors = ['#F4EDD3', '#A5BFCC', '#7E99A3', '#4C585B', '#2E5077']
 
-  const draw = (dots:any,ctx:any) => {
+  const draw = (dots:Dot[],ctx:CanvasRenderingContext2D) => {
     dots.forEach((dot:any) => {
       ctx.fillStyle = dot.color;
       ctx.beginPath();
@@ -18,30 +29,29 @@ const Hero = () => {
       ctx.fill();
     });
   }
-  const draLines = (dots:any,mouse:any,ctx:any) => {
-    dots.forEach((dot:any) => {
-      let distance = Math.sqrt((mouse.x-dot.x)**2+(mouse.y-dot.y)**2);
-      if(distance < 300){
+  const draLines = (dots: Dot[], mouse: Mouse, ctx: CanvasRenderingContext2D) => {
+    dots.forEach((dot: any) => {
+      const distance = Math.sqrt((mouse.x - dot.x) ** 2 + (mouse.y - dot.y) ** 2);
+      if (distance < 300) {
         ctx.strokeStyle = dot.color;
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(dot.x,dot.y);
-        ctx.lineTo(mouse.x,mouse.y);
+        ctx.moveTo(dot.x, dot.y);
+        ctx.lineTo(mouse.x, mouse.y);
         ctx.stroke();
       }
     });
-
-    }   
+  };
   
 
   useEffect(() => {
     // Initialize
     if (canvasRef.current) {
-      let canvas = canvasRef.current;
+      const canvas = canvasRef.current;
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
       canvasCtxRef.current = canvas.getContext('2d');
-      let ctx = canvasCtxRef.current;
+      const ctx = canvasCtxRef.current;
 
       let dots=[];
       for (let i = 0; i < 50; i++) {
@@ -54,22 +64,22 @@ const Hero = () => {
         
       }
       console.log(dots);
-      draw(dots,ctx);
+      draw(dots,ctx as CanvasRenderingContext2D);
 
       if(homeSection.current){
-        let homeSectionRef = homeSection.current;
+        const homeSectionRef = homeSection.current;
         homeSectionRef.addEventListener('mousemove', (e) => {
           ctx?.clearRect(0,0,canvas.width,canvas.height);
-          draw(dots,ctx);
-          let mouse = {
+          draw(dots,ctx as CanvasRenderingContext2D);
+          const mouse = {
             x:e.pageX-homeSectionRef.getBoundingClientRect().left,
             y:e.pageY-homeSectionRef.getBoundingClientRect().top,
           }
-          draLines(dots,mouse,ctx);
+          draLines(dots,mouse,ctx as CanvasRenderingContext2D);
         });
         homeSectionRef.addEventListener('mouseout',(e)=>{
           ctx?.clearRect(0,0,canvas.width,canvas.height);
-          draw(dots,ctx);
+          draw(dots,ctx as CanvasRenderingContext2D);
         })
       }
     }
