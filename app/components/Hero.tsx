@@ -22,7 +22,7 @@ const Hero = () => {
   const arrayColors = ['#F4EDD3', '#A5BFCC', '#7E99A3', '#4C585B', '#2E5077']
 
   const draw = (dots:Dot[],ctx:CanvasRenderingContext2D) => {
-    dots.forEach((dot:any) => {
+    dots.forEach((dot:Dot) => {
       ctx.fillStyle = dot.color;
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
@@ -30,7 +30,7 @@ const Hero = () => {
     });
   }
   const draLines = (dots: Dot[], mouse: Mouse, ctx: CanvasRenderingContext2D) => {
-    dots.forEach((dot: any) => {
+    dots.forEach((dot: Dot) => {
       const distance = Math.sqrt((mouse.x - dot.x) ** 2 + (mouse.y - dot.y) ** 2);
       if (distance < 300) {
         ctx.strokeStyle = dot.color;
@@ -53,7 +53,7 @@ const Hero = () => {
       canvasCtxRef.current = canvas.getContext('2d');
       const ctx = canvasCtxRef.current;
 
-      let dots=[];
+      const dots:Dot[]=[];
       for (let i = 0; i < 50; i++) {
         dots.push({
           x: Math.floor(Math.random() * canvas.width),
