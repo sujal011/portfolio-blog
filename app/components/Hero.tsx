@@ -68,16 +68,16 @@ const Hero = () => {
 
       if(homeSection.current){
         const homeSectionRef = homeSection.current;
-        homeSectionRef.addEventListener('mousemove', (e) => {
+        homeSectionRef.addEventListener('mousemove', (e: MouseEvent) => {
           ctx?.clearRect(0,0,canvas.width,canvas.height);
           draw(dots,ctx as CanvasRenderingContext2D);
           const mouse = {
-            x:e.pageX-homeSectionRef.getBoundingClientRect().left,
-            y:e.pageY-homeSectionRef.getBoundingClientRect().top,
+            x: e.pageX - homeSectionRef.getBoundingClientRect().left,
+            y: e.pageY - homeSectionRef.getBoundingClientRect().top,
           }
-          draLines(dots,mouse,ctx as CanvasRenderingContext2D);
+          draLines(dots, mouse, ctx as CanvasRenderingContext2D);
         });
-        homeSectionRef.addEventListener('mouseout',(e)=>{
+        homeSectionRef.addEventListener('mouseout',()=>{
           ctx?.clearRect(0,0,canvas.width,canvas.height);
           draw(dots,ctx as CanvasRenderingContext2D);
         })
