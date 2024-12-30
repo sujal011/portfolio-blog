@@ -2,12 +2,80 @@
 
 import { ArrowDown } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useEffect, useRef } from 'react';
 
 const Hero = () => {
+  let canvasRef = useRef<HTMLCanvasElement | null>(null);
+  let homeSection = useRef<HTMLElement | null>(null);
+  let canvasCtxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const arrayColors = ['#F4EDD3', '#A5BFCC', '#7E99A3', '#4C585B', '#2E5077']
+
+  const draw = (dots:any,ctx:any) => {
+    dots.forEach((dot:any) => {
+      ctx.fillStyle = dot.color;
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+  const draLines = (dots:any,mouse:any,ctx:any) => {
+    dots.forEach((dot:any) => {
+      let distance = Math.sqrt((mouse.x-dot.x)**2+(mouse.y-dot.y)**2);
+      if(distance < 300){
+        ctx.strokeStyle = dot.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(dot.x,dot.y);
+        ctx.lineTo(mouse.x,mouse.y);
+        ctx.stroke();
+      }
+    });
+
+    }   
+  
+
+  useEffect(() => {
+    // Initialize
+    if (canvasRef.current) {
+      let canvas = canvasRef.current;
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      canvasCtxRef.current = canvas.getContext('2d');
+      let ctx = canvasCtxRef.current;
+
+      let dots=[];
+      for (let i = 0; i < 50; i++) {
+        dots.push({
+          x: Math.floor(Math.random() * canvas.width),
+          y: Math.floor(Math.random() * canvas.height),
+          size: Math.random() * 3+5,
+          color: arrayColors[Math.floor(Math.random() * arrayColors.length)]
+        })
+        
+      }
+      console.log(dots);
+      draw(dots,ctx);
+
+      if(homeSection.current){
+        let homeSectionRef = homeSection.current;
+        homeSectionRef.addEventListener('mousemove', (e) => {
+          ctx?.clearRect(0,0,canvas.width,canvas.height);
+          draw(dots,ctx);
+          let mouse = {
+            x:e.pageX-homeSectionRef.getBoundingClientRect().left,
+            y:e.pageY-homeSectionRef.getBoundingClientRect().top,
+          }
+          draLines(dots,mouse,ctx);
+        });
+      }
+    }
+    
+  }, []);
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-16"
+      ref={homeSection}
+      className="min-h-screen flex items-center justify-center pt-16 relative"
     >
       <div className="container mx-auto px-6 text-center">
         <motion.h1
@@ -74,6 +142,8 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+    <canvas ref={canvasRef} className='absolute bg-transparent top-0 left-0 w-full h-full pointer-events-none'></canvas>
+    
     </section>
   );
 };
