@@ -67,6 +67,10 @@ const Hero = () => {
           }
           draLines(dots,mouse,ctx);
         });
+        homeSectionRef.addEventListener('mouseout',(e)=>{
+          ctx?.clearRect(0,0,canvas.width,canvas.height);
+          draw(dots,ctx);
+        })
       }
     }
     
@@ -142,7 +146,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-    <canvas ref={canvasRef} className='absolute bg-transparent top-0 left-0 w-full h-full pointer-events-none'></canvas>
+    <canvas ref={canvasRef} className='absolute bg-transparent top-0 left-0 w-full h-full pointer-events-none hidden lg:block'></canvas>
     
     </section>
   );
