@@ -1,0 +1,137 @@
+---
+title: "Understanding Dockerfile and FastAPI with a Simple Example"
+description: "A step-by-step explanation of a Dockerfile for FastAPI, along with sample code for a basic FastAPI application."
+date: "2025-01-27"
+author: "Sujal"
+---
+
+## Introduction
+
+Docker simplifies the process of developing, shipping, and running applications. Combined with **FastAPI**, a high-performance Python web framework, you can create modern APIs effortlessly. In this blog, we'll:
+
+1. Understand a **Dockerfile** line by line.
+2. Explore a sample **FastAPI** code snippet.
+
+---
+
+## The Dockerfile
+
+Here’s a simple copy paste Dockerfile for deploying a FastAPI application:
+
+```dockerfile
+FROM python:3.9
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./app /code/app
+
+CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+```
+
+## Sample FastAPI Code
+
+
+Here’s a simple FastAPI application:
+
+
+```python
+from typing import Union
+from fastapi import FastAPI
+
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+
+```
+
+## Directory Structure 
+
+```
+project/
+├── app/
+│   ├── main.py
+├── requirements.txt
+└── Dockerfile
+```
+
+## Breaking Down the Dockerfile
+
+Let’s take a detailed look at the **Dockerfile** step by step:
+
+### 1. `FROM python:3.9`
+
+This line specifies the base image. It uses the official Python image with version **3.9**.  
+The base image includes Python pre-installed, saving you the hassle of setting it up manually.
+
+---
+
+### 2. `WORKDIR /code`
+
+This sets the **working directory** inside the container to `/code`.  
+Any subsequent commands (e.g., `COPY`, `RUN`) will be executed relative to this directory.
+
+---
+
+### 3. `COPY ./requirements.txt /code/requirements.txt`
+
+This copies the `requirements.txt` file from your local system to the container at `/code/requirements.txt`.  
+The `requirements.txt` file lists all the dependencies your Python project needs.
+
+---
+
+### 4. `RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt`
+
+This installs the dependencies listed in `requirements.txt` using **pip**.
+
+- **`--no-cache-dir`**: Ensures no temporary files are cached, reducing the image size.  
+- **`--upgrade`**: Updates all dependencies to their latest compatible versions.
+
+---
+
+### 5. `COPY ./app /code/app`
+
+This copies the `app` directory from your local machine to `/code/app` inside the container.  
+The `app` directory typically contains your FastAPI application files.
+
+---
+
+### 6. `CMD ["fastapi", "run", "app/main.py", "--port", "80"]`
+
+This specifies the command the container will execute when it starts:
+
+- **`fastapi run`**: Runs the FastAPI application.  
+- **`app/main.py`**: The entry point to your FastAPI app.  
+- **`--port 80`**: Exposes the application on port **80** inside the container.
+
+---
+### Now use these following commands to build and run the container:
+
+```
+docker build -t fastapi-app .
+```
+```
+docker run -d -p 80:80 fastapi-app
+```
+
+### Open Your Browser and go to localhost you should see something like this :
+
+```json
+{"Hello": "World"}
+```
+
+## Conclusion
+
+This step-by-step breakdown helps you understand each line of the **Dockerfile** and its role in building and deploying a FastAPI application. With this knowledge, you can confidently build Docker images for your projects.
