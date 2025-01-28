@@ -1,9 +1,24 @@
----
-title: "Understanding Dockerfile and FastAPI with a Simple Example"
-description: "A step-by-step explanation of a Dockerfile for FastAPI, along with sample code for a basic FastAPI application."
-date: "2025-01-27"
-author: "Sujal"
----
+export const metadata = {
+    title: "Understanding Dockerfile and FastAPI with a Simple Example",
+    description: "A comprehensive guide to Dockerizing a FastAPI application with step-by-step instructions.",
+    openGraph: {
+        title: "Understanding Dockerfile and FastAPI with a Simple Example",
+        description: "A comprehensive guide to Dockerizing a FastAPI application with step-by-step instructions.",
+        url: "https://sujalbhavsar.in/blog/how-to-dockerize-fast-api-python-code",
+        siteName: "Sujal Bhavsar",
+        images: [
+            {
+                url: "/blog-images/dockerize-fastapi.png",
+                width: 1412,
+                height: 782,
+                alt: "Understanding Dockerfile and FastAPI with a Simple Example - Sujal Bhavsar",
+            },
+        ],
+        type: "article",
+        publishedTime: "2025-28-1",
+        authors: ["https://sujalbhavsar.in"],
+    }
+};
 
 ## Introduction
 
@@ -41,20 +56,15 @@ Here’s a simple FastAPI application:
 ```python
 from typing import Union
 from fastapi import FastAPI
-
-
 app = FastAPI()
-
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
-
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
-
 ```
 
 ## Directory Structure 
@@ -135,3 +145,5 @@ docker run -d -p 80:80 fastapi-app
 ## Conclusion
 
 This step-by-step breakdown helps you understand each line of the **Dockerfile** and its role in building and deploying a FastAPI application. With this knowledge, you can confidently build Docker images for your projects.
+
+<br/>

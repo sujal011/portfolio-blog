@@ -17,8 +17,7 @@ export default function RootLayout({
       <header className='fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50'>
       <Header/>
         </header>
-      <main className="px-[20%] bg-gray-50 max-sm:px-[10%] max-md:px-[10%] max-lg:px-[15%] pt-16">
-        
+      <main className="px-[20%] bg-gray-50 max-sm:px-[10%] max-md:px-[10%] max-lg:px-[15%] pt-16 mdx-main">
         {children}
       </main>
     <footer className="bg-gray-900 text-white py-12">
