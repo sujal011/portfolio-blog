@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import RecentBlogs from './components/Recent-Blogs';
 import Skills from './components/Skills';
 
 
@@ -18,6 +19,7 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
+        <RecentBlogs />
         <Contact /> 
       </main>
     <footer className="bg-gray-900 text-white py-12">
