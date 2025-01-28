@@ -1,85 +1,77 @@
 /* Tailwind CSS styles for MDX elements */
 
-/* Root element for the entire blog post */
-.prose {
+.mdx-main .prose {
   @apply max-w-prose mx-auto px-4 py-8;
 }
 
-/* Headers */
-h1 {
+.mdx-main h1 {
   @apply text-4xl max-sm:text-2xl max-md:text-3xl font-bold text-gray-800 my-4;
 }
 
-h2 {
+.mdx-main h2 {
   @apply text-3xl max-sm:text-xl max-md:text-2xl font-medium text-gray-700 mt-6 mb-3;
 }
 
-h3 {
+.mdx-main h3 {
   @apply text-2xl max-sm:text-lg max-md:text-xl font-semibold text-gray-600 mt-5 mb-2;
 }
 
-/* Paragraphs */
-p {
+.mdx-main p {
   @apply text-base text-gray-700 leading-relaxed mb-4;
 }
 
-/* Links */
-a {
+.mdx-main a {
   @apply text-blue-600 hover:underline;
 }
 
-/* Lists */
-ul {
+.mdx-main ul {
   @apply list-disc pl-6 mb-4;
 }
 
-ol {
+.mdx-main ol {
   @apply list-decimal pl-6 mb-4;
 }
 
-li {
+.mdx-main li {
   @apply mb-2 text-gray-700;
 }
 
-/* Blockquote */
-blockquote {
+.mdx-main blockquote {
   @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4;
 }
 
-/* Code blocks */
-pre {
+.mdx-main pre {
   @apply bg-gray-800 text-white rounded-md p-4 overflow-x-auto mb-4;
 }
 
-code {
-  @apply bg-gray-100 text-red-500 rounded px-1 py-0.5 font-mono;
+.mdx-main code {
+  @apply rounded px-1 py-0.5 font-mono;
 }
 
-/* Tables */
-table {
+.mdx-main table {
   @apply table-auto w-full text-left border-collapse border border-gray-300 mb-4;
 }
 
-th {
+.mdx-main th {
   @apply bg-gray-100 text-gray-800 font-bold border border-gray-300 px-4 py-2;
 }
 
-td {
+.mdx-main td {
   @apply border border-gray-300 px-4 py-2 text-gray-700;
 }
 
-/* Images */
-img {
+.mdx-main img {
   @apply rounded-lg shadow-lg max-w-full h-auto mx-auto my-4;
 }
 
-/* Horizontal rules */
-hr {
+.mdx-main hr {
   @apply border-t border-gray-300 my-6;
 }
-b{
-  @apply font-bold
+
+.mdx-main b {
+  @apply font-bold;
 }
+
 .font-bold {
   font-weight: 700;
 }
