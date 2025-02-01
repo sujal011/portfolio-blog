@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
