@@ -7,25 +7,25 @@ import Link from 'next/link';
 
 const blogs = [
     {
+        title: 'How To Run DeepSeek R1 Locally for Free in Just 3 Minutes',
+        description: 'Learn how to set up DeepSeek-R1 on your system using Ollama and run it locally for free in just 3 minutes.',
+        image: '/blog-images/run-deepseek-r1-locally-for-free-in-just-3-minutes.png',
+        date: 'January 2, 2025',
+        href: '/blog/run-deepseek-r1-locally-for-free-in-just-3-minutes'
+    },
+    {
         title: 'Understanding Dockerfile and FastAPI with a Simple Example',
         description: 'A comprehensive guide to Dockerizing a FastAPI application with step-by-step instructions.',
         image: '/blog-images/dockerize-fastapi.png',
         date: 'January 28, 2025',
-        href: 'https://sujalbhavsar.in/blog/How-to-dockerize-fast-api-python-code'
+        href: '/blog/How-to-dockerize-fast-api-python-code'
     },
     {
         title: 'Welcome to My Blog! | Sujal Bhavsar',
         description: 'An introduction to my journey, passions, and the exciting projects I’ve been working on.',
         image: '/blog-images/welcome-to-blog.png',
         date: 'December 10, 2024',
-        href: 'https://sujalbhavsar.in/blog/welcome-to-my-blog'
-    },
-    {
-        title: 'How To Run DeepSeek R1 Locally for Free in Just 3 Minutes',
-        description: 'Learn how to set up DeepSeek-R1 on your system using Ollama and run it locally for free in just 3 minutes.',
-        image: '/blog-images/run-deepseek-r1-locally-for-free-in-just-3-minutes.png',
-        date: 'January 2, 2025',
-        href: 'https://sujalbhavsar.in/blog/run-deepseek-r1-locally-for-free-in-just-3-minutes'
+        href: '/blog/welcome-to-my-blog'
     }
 
 ];
