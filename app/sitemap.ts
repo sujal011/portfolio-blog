@@ -35,5 +35,10 @@ export default function Sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             priority: 0.8,
         },
+        {
+            url: "https://www.sujalbhavsar.in/blog/run-deepseek-r1-locally-for-free-in-just-3-minutes",
+            lastModified: new Date(),
+            priority: 0.8,
+        },
     ]
 }

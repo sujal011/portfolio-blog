@@ -19,7 +19,15 @@ const blogs = [
         image: '/blog-images/welcome-to-blog.png',
         date: 'December 10, 2024',
         href: 'https://sujalbhavsar.in/blog/welcome-to-my-blog'
+    },
+    {
+        title: 'How To Run DeepSeek R1 Locally for Free in Just 3 Minutes',
+        description: 'Learn how to set up DeepSeek-R1 on your system using Ollama and run it locally for free in just 3 minutes.',
+        image: '/blog-images/run-deepseek-r1-locally-for-free-in-just-3-minutes.png',
+        date: 'January 2, 2025',
+        href: 'https://sujalbhavsar.in/blog/run-deepseek-r1-locally-for-free-in-just-3-minutes'
     }
+
 ];
 
 const RecentBlogs = () => {
