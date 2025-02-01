@@ -19,9 +19,13 @@ const clientSide = (visible:boolean) => {
                 <Link href={visible?`#projects`:`https://www.sujalbhavsar.in/#projects`} className="text-gray-600 hover:text-gray-900">
                     Projects
                 </Link>
+                <Link href={visible?`#recent-blogs`:`https://www.sujalbhavsar.in/#recent-blogs`} className="text-gray-600 hover:text-gray-900">
+                Blogs
+                </Link>
                 <Link href={visible?`#contact`:`https://www.sujalbhavsar.in/#contact`} className="text-gray-600 hover:text-gray-900">
                     Contact
                 </Link>
+
             </div>
 
             <div className="flex space-x-4 flex-row">
