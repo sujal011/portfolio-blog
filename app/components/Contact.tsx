@@ -2,7 +2,7 @@
 
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
-import {ChangeEvent, FormEvent, useState} from 'react'
+import {ChangeEvent, useState} from 'react'
 
 
 const Contact = () => {
