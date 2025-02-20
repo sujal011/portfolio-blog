@@ -2,27 +2,30 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
-const clientSide = () => {
+const clientSide = (visible:boolean) => {
     'use client';
     return (
         <>
             <Link href="/" className="text-2xl font-bold text-gray-800">
                 Sujal
             </Link>
-
-            <div className="hidden md:flex space-x-8">
-                <Link href="#about" className="text-gray-600 hover:text-gray-900">
+        <div className="hidden md:flex space-x-8">
+                <Link href={visible?`#about`:`https://www.sujalbhavsar.in/#about`} className="text-gray-600 hover:text-gray-900">
                     About
                 </Link>
-                <Link href="#experience" className="text-gray-600 hover:text-gray-900">
+                <Link href={visible?`#experience`:`https://www.sujalbhavsar.in/#experience`} className="text-gray-600 hover:text-gray-900">
                     Experience
                 </Link>
-                <Link href="#projects" className="text-gray-600 hover:text-gray-900">
+                <Link href={visible?`#projects`:`https://www.sujalbhavsar.in/#projects`} className="text-gray-600 hover:text-gray-900">
                     Projects
                 </Link>
-                <Link href="#contact" className="text-gray-600 hover:text-gray-900">
+                <Link href={visible?`#recent-blogs`:`https://www.sujalbhavsar.in/#recent-blogs`} className="text-gray-600 hover:text-gray-900">
+                Blogs
+                </Link>
+                <Link href={visible?`#contact`:`https://www.sujalbhavsar.in/#contact`} className="text-gray-600 hover:text-gray-900">
                     Contact
                 </Link>
+
             </div>
 
             <div className="flex space-x-4 flex-row">
@@ -53,10 +56,10 @@ const clientSide = () => {
     );
 };
 
-const Header = () => {
+const Header = ({visible}:{visible:boolean}) => {
     return (
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center lg:px-20">
-            {clientSide()}
+            {clientSide(visible)}
         </nav>
     );
 };
