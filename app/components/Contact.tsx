@@ -3,12 +3,9 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import {ChangeEvent, FormEvent, useState} from 'react'
-import emailjs from '@emailjs/browser'
 
 
 const Contact = () => {
-
-  // const myform = document.getElementById('myform') as HTMLFormElement;
   
 
 const containerVariants = {
@@ -147,7 +144,6 @@ const containerVariants = {
             </motion.div>
 
             <motion.button
-            // onClick={handleSubmit}
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
