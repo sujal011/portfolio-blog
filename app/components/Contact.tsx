@@ -123,7 +123,9 @@ const containerVariants = {
           id='myform'
             variants={containerVariants}
             className="space-y-6 card-gradient px-10 rounded-lg pt-0 mt-0"
-            onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
+            action="https://usebasin.com/f/bf05b3d1b9e6"
+            method="post"
+            // onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
               { name:'from_name',id: 'name', type: 'text', label: 'Name',value:formData.name },
@@ -160,7 +162,7 @@ const containerVariants = {
             </motion.div>
 
             <motion.button
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
