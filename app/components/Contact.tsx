@@ -45,21 +45,6 @@ const containerVariants = {
     });
   };
 
-  const handleSubmit = async (e:FormEvent) => {
-    e.preventDefault();
-    
-    emailjs.init(process.env.NEXT_PUBLIC_MAIL_KEY!);
-    const success = await emailjs.send(process.env.NEXT_PUBLIC_MAIL_SERVICE!,process.env.NEXT_PUBLIC_MAIL_TEMPLATE!,{
-      message: formData.message,
-      from_name: formData.name,
-      from_email: formData.email,
-      });
-      console.log(success);
-      
-    
-    console.log('Form data submitted:', formData);
-    
-  };
 
   return (
     <section id="contact" className="py-20">
@@ -123,7 +108,9 @@ const containerVariants = {
           id='myform'
             variants={containerVariants}
             className="space-y-6 card-gradient px-10 rounded-lg pt-0 mt-0"
-            onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
+            action="https://usebasin.com/f/bf05b3d1b9e6"
+            method="post"
+            // onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
           >
             {[
               { name:'from_name',id: 'name', type: 'text', label: 'Name',value:formData.name },
@@ -160,7 +147,7 @@ const containerVariants = {
             </motion.div>
 
             <motion.button
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

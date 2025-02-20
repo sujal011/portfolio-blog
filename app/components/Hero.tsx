@@ -84,7 +84,7 @@ const Hero = () => {
       }
     }
     
-  }, []);
+  });
   return (
     <section
       id="home"
