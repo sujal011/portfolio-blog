@@ -17,7 +17,7 @@
     "lucide-react": "^0.468.0",
     "mongoose": "^8.9.6",
     "motion": "^11.13.3",
-    "next": "15.1.2",
+    "next": "15.2.3",
     "next-view-transitions": "^0.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
